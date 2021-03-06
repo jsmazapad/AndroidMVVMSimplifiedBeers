@@ -20,7 +20,7 @@ public class MenuViewModel extends BaseRecyclerViewModel<MenuElement, MenuElemen
 
 
     public MenuViewModel(Application app) {
-        super(app, null);
+        super(app);
     }
 
     @Override

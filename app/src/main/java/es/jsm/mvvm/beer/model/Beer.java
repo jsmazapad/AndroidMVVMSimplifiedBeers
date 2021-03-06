@@ -6,6 +6,7 @@ import android.provider.BaseColumns;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
@@ -128,6 +129,7 @@ public class Beer implements Parcelable {
     /**
      * No args constructor for use in serialization
      */
+    @Ignore
     public Beer() {
     }
 
