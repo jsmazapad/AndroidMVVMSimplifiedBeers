@@ -1,0 +1,144 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "cf82e71ae135c5bfdea5a7f6f8532f68",
+    "entities": [
+      {
+        "tableName": "places",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id` INTEGER NOT NULL, `name` TEXT, `tagline` TEXT, `firstBrewed` TEXT, `description` TEXT, `imageUrl` TEXT, `abv` REAL NOT NULL, `ibu` INTEGER NOT NULL, `targetFg` INTEGER NOT NULL, `targetOg` INTEGER NOT NULL, `ebc` INTEGER NOT NULL, `srm` INTEGER NOT NULL, `ph` REAL NOT NULL, `attenuationLevel` INTEGER NOT NULL, `foodPairing` TEXT, `brewersTips` TEXT, `contributedBy` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "internalId",
+            "columnName": "_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tagline",
+            "columnName": "tagline",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "firstBrewed",
+            "columnName": "firstBrewed",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "imageUrl",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "abv",
+            "columnName": "abv",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ibu",
+            "columnName": "ibu",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "targetFg",
+            "columnName": "targetFg",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "targetOg",
+            "columnName": "targetOg",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ebc",
+            "columnName": "ebc",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "srm",
+            "columnName": "srm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ph",
+            "columnName": "ph",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attenuationLevel",
+            "columnName": "attenuationLevel",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "foodPairing",
+            "columnName": "foodPairing",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "brewersTips",
+            "columnName": "brewersTips",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "contributedBy",
+            "columnName": "contributedBy",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_places__id",
+            "unique": false,
+            "columnNames": [
+              "_id"
+            ],
+            "createSql": "CREATE  INDEX `index_places__id` ON `${TABLE_NAME}` (`_id`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"cf82e71ae135c5bfdea5a7f6f8532f68\")"
+    ]
+  }
+}

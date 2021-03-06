@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/nav_menu"
+    android:id="@+id/mobile_navigation">
+
+    <fragment
+        android:id="@+id/nav_menu"
+        android:name="es.jsm.mvvm.beer.ui.privateviews.menu.MenuFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_menu">
+
+        <action
+            android:id="@+id/action_nav_menu_to_nav_beers"
+            app:destination="@id/nav_catalog" />
+        <action
+            android:id="@+id/action_nav_menu_to_nav_favorites"
+            app:destination="@id/nav_favorites" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_catalog"
+        android:name="es.jsm.mvvm.beer.ui.privateviews.beers.BeersFragment"
+        android:label="@string/title_fragment_beers"
+        tools:layout="@layout/fragment_beers">
+        <action
+            android:id="@+id/action_nav_beers_to_nav_beer_detail"
+            app:destination="@id/nav_beer_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="es.jsm.mvvm.beer.ui.privateviews.favorites.FavoritesFragment"
+        android:label="@string/title_fragment_favorites"
+        tools:layout="@layout/fragment_beers">
+        <action
+            android:id="@+id/action_nav_favorites_to_nav_beer_detail"
+            app:destination="@id/nav_beer_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_beer_detail"
+        android:name="es.jsm.mvvm.beer.ui.privateviews.beerdetail.BeerDetailFragment"
+        android:label="@string/title_fragment_beer_detail"
+        tools:layout="@layout/fragment_beers_detail">
+        <argument
+            android:name="beer"
+            app:argType="es.jsm.mvvm.beer.model.Beer" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="es.jsm.mvvm.beer.ui.privateviews.beerdetail.BeerDetailViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="20dp"
+            tools:context=".ui.privateviews.beerdetail.BeerDetailFragment">
+
+            <TextView
+                android:id="@+id/titleTV"
+                style="@style/DetailsHeader"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@{viewModel.beer.name}"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Título de prueba para cerveza" />
+
+            <ImageView
+                android:id="@+id/beerImageTV"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="24dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleTV"
+                app:imageUrl="@{viewModel.beer.imageUrl}"
+                app:srcCompat="@drawable/beer_logo" />
+
+            <LinearLayout
+                android:id="@+id/dataLL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/beerImageTV">
+
+                <TextView
+                    android:id="@+id/taglineTV"
+                    style="@style/DetailsBoldLabel"
+                    android:background="@drawable/gray_up_bottom_border_background"
+                    android:padding="10dp"
+                    android:text="@{viewModel.beer.tagline}" />
+
+                <LinearLayout style="@style/DetailsLinearLayoutLabelTextRow">
+
+                    <TextView
+                        android:id="@+id/descriptionLabelTV"
+                        style="@style/DetailsBoldLabel"
+                        android:text="Description" />
+
+                    <TextView
+                        android:id="@+id/descriptionTV"
+                        style="@style/DetailsText"
+                        android:text="@{viewModel.beer.description}" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/DetailsLinearLayoutLabelTextRow">
+                    <TextView
+                        android:id="@+id/abvLabelTV"
+                        style="@style/DetailsBoldLabel"
+                        android:text="ABV" />
+
+                    <TextView
+                        android:id="@+id/abvTV"
+                        style="@style/DetailsText"
+                        android:text="@{Double.toString(viewModel.beer.abv)}" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/DetailsLinearLayoutLabelTextRow">
+                    <TextView
+                        android:id="@+id/firstBrewedLabelTV"
+                        style="@style/DetailsBoldLabel"
+                        android:text="First Brewed" />
+
+                    <TextView
+                        android:id="@+id/firstBrewedTV"
+                        style="@style/DetailsText"
+                        android:text="@{viewModel.beer.firstBrewed}" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/DetailsLinearLayoutLabelTextRow">
+                    <TextView
+                        android:id="@+id/brewerTipsLabelTV"
+                        style="@style/DetailsBoldLabel"
+                        android:text="Brewer Tips" />
+
+                    <TextView
+                        android:id="@+id/brewerTipsTV"
+                        style="@style/DetailsText"
+                        android:text="@{viewModel.beer.brewersTips}" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/DetailsLinearLayoutLabelTextRow">
+
+                    <TextView
+                        android:id="@+id/foodPairingLabelTV"
+                        style="@style/DetailsBoldLabel"
+                        android:text="Food pairing" />
+                    <TextView
+                        android:id="@+id/foodPairingTV"
+                        style="@style/DetailsText"
+                        app:arrayToText="@{viewModel.beer.foodPairing}" />
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

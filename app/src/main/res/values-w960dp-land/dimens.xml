@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_xsmall">20sp</dimen>
+    <dimen name="font_small">22sp</dimen>
+    <dimen name="font_medium">24sp</dimen>
+    <dimen name="font_large">26sp</dimen>
+    <dimen name="font_xlarge">28sp</dimen>
+    <dimen name="font_xxlarge">30sp</dimen>
+
+    <!-- START -->
+    <dimen name="start_width_img">380dp</dimen>
+    <dimen name="start_height_img">340dp</dimen>
+    <dimen name="start_margin_top_img">0dp</dimen>
+    <dimen name="start_margin_hz_txt">18dp</dimen>
+    <dimen name="start_margin_top_txt">12dp</dimen>
+    <dimen name="start_btn_height">45dp</dimen>
+    <dimen name="start_btn_hz_padding">150dp</dimen>
+    <dimen name="start_margin_top_btn">12dp</dimen>
+
+    <!-- SPLASH -->
+    <dimen name="splash_height_logo">280dp</dimen>
+    <dimen name="splash_width_logo">260dp</dimen>
+    <dimen name="splash_margin_vt_logo">0dp</dimen>
+    <dimen name="splash_width_jda">260dp</dimen>
+    <dimen name="splash_height_jda">200dp</dimen>
+</resources>

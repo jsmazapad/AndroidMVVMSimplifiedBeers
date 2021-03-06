@@ -1,0 +1,123 @@
+apply plugin: 'com.android.application'
+apply plugin: 'androidx.navigation.safeargs'
+
+def getGitRevParseInfo(what) {
+    def cmd = "git rev-parse " + what + " HEAD"
+    def proc = cmd.execute()
+    proc.text.trim()
+}
+
+
+android {
+    dataBinding {
+        enabled true
+    }
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        applicationId "es.jsm.mvvm.menores"
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 3
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+    }
+
+
+    def appVersionScreenPrefix = "appVersionScreenPrefix"
+    def appName = "app_name"
+    def baseUrl = "BASE_URL"
+    def version = "VERSION"
+    flavorDimensions 'JSM'
+    productFlavors {
+
+        pro {
+            dimension = 'JSM'
+            manifestPlaceholders =
+                    [mapKey: ""]
+            buildConfigField('String', appVersionScreenPrefix, "\"\"")
+            buildConfigField('String', baseUrl, "\"https://api.punkapi.com/v2/\"")
+            buildConfigField('String', version, "\"v1.0.0\"")
+            resValue "string", appName, "Beers Fav"
+
+        }
+        pre {
+            dimension = 'JSM'
+            manifestPlaceholders =
+                    [mapKey: ""]
+            buildConfigField('String', appVersionScreenPrefix, "\"PRE\"")
+            buildConfigField('String', baseUrl, "\"https://api.punkapi.com/v2/\"")
+            buildConfigField('String', version, "\"v1.0.0\"")
+            resValue "string", appName, "Beers"
+
+
+        }
+        des {
+            dimension = 'JSM'
+            applicationIdSuffix ".desarrollo"
+            manifestPlaceholders =
+                    [mapKey: ""]
+            buildConfigField('String', appVersionScreenPrefix, "\"DES\"")
+            buildConfigField('String', baseUrl, "\"https://api.punkapi.com/v2/\"")
+            buildConfigField('String', version, "\"v1.0.0\"")
+            resValue "string", appName, "Beers"
+        }
+
+
+        android.applicationVariants.all { variant ->
+            if (variant.buildType.name.equals("release")) {
+                variant.outputs.all {
+                    outputFileName = getGitRevParseInfo("--abbrev-ref") + "_${variant.getFlavorName().toUpperCase()}.apk"
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'cat.ereza:customactivityoncrash:2.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation 'androidx.navigation:navigation-fragment:2.3.3'
+    implementation 'androidx.navigation:navigation-ui:2.3.3'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    testImplementation 'junit:junit:4.13'
+    testImplementation 'net.jodah:concurrentunit:0.4.6'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation "androidx.security:security-crypto:1.1.0-alpha03"
+
+    //implementar sqlite con Room
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+    
+}

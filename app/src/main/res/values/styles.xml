@@ -1,0 +1,123 @@
+<resources>
+
+    <!-- parent application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Spinner">
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginRight">40dp</item>
+        <item name="android:background">@drawable/spinner_border</item>
+    </style>
+
+    <style name="SpinnerLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginStart">40dp</item>
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginEnd">40dp</item>
+        <item name="android:layout_marginRight">40dp</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="RecyclerView">
+        <item name="android:layout_marginStart">1dp</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:layout_marginEnd">1dp</item>
+        <item name="android:layout_marginRight">1dp</item>
+        <item name="android:layout_marginBottom">1dp</item>
+    </style>
+
+
+    <style name="TextViewNoItems">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="DetailsHeader">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font_xlarge</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colored_text</item>
+        <item name="android:layout_marginStart">@dimen/dp8</item>
+        <item name="android:layout_marginEnd">@dimen/dp8</item>
+        <item name="android:layout_marginTop">@dimen/dp16</item>
+        <item name="android:padding">@dimen/dp16</item>
+        <item name="android:background">@drawable/border_background</item>
+    </style>
+
+    <style name="DetailsText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/font_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="DetailsBoldLabel" parent="DetailsText">
+        <item name="android:textColor">@color/black_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DetailsLinearLayoutLabelTextRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/dp16</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="RecyclerRowTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/opensans_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="RecyclerRowDescription">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+
+</resources>

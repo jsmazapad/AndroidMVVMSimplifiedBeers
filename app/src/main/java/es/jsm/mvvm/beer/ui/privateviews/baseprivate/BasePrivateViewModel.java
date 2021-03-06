@@ -1,0 +1,19 @@
+package es.jsm.mvvm.beer.ui.privateviews.baseprivate;
+
+import android.content.Context;
+
+import androidx.lifecycle.ViewModel;
+
+import es.jsm.mvvm.beer.providers.SessionProvider;
+import es.jsm.mvvm.beer.repositories.BeersRepository;
+
+public class BasePrivateViewModel extends ViewModel {
+
+    public void closeSession(Context c) {
+        SessionProvider.invalidateSession();
+        //Si se usa mas de un grafo en el área privada hay que controlar la navegación desde donde se esté
+        //Esto sólo es válido para un único grafo de navegación
+        ((BasePrivateActivity) c).finish();
+    }
+}
+

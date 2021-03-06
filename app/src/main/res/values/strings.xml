@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_large_title">My Favourite Beers</string>
+
+    <!-- ERRORS -->
+    <string name="customactivityoncrash_error_activity_error_occurred_explanation">Ha ocurrido un error insesperado</string>
+    <string name="customactivityoncrash_error_activity_restart_app">Reiniciar app</string>
+    <string name="customactivityoncrash_error_activity_close_app">Cerrar app</string>
+    <string name="customactivityoncrash_error_activity_error_details">Informe de error</string>
+    <string name="customactivityoncrash_error_activity_error_details_title">Informe de error</string>
+    <string name="customactivityoncrash_error_activity_error_details_close">Cerrar</string>
+    <string name="customactivityoncrash_error_activity_error_details_copy">Copiar al portapapeles</string>
+    <string name="customactivityoncrash_error_activity_error_details_copied">Copiado en el portapapeles</string>
+    <string name="customactivityoncrash_error_activity_error_details_clipboard_label">Información del error</string>
+
+    <!-- -->
+    <string name="menu_home">Home</string>
+    <string name="menu_login">Login</string>
+    <string name="menu_close">Close session</string>
+    <string name="menu_beers">Beers</string>
+
+
+    <!-- -->
+    <string name="default_recyclerview_emptyMessage">No hay resultados que mostrar</string>
+    <string name="error_network_ask_retry"> ¿Desea volver a cargar los datos?</string>
+    <string name="default_modal_okButton">Aceptar</string>
+    <string name="default_modal_cancelButton">Cancelar</string>
+
+    <!-- TITLES -->
+    <string name="title_fragment_beers">Beers Catalog</string>
+    <string name="title_fragment_favorites">Favourites</string>
+    <string name="title_fragment_beer_detail">Beer Data</string>
+
+    <!-- SPLASH -->
+    <string name="alt_base">Base splash</string>
+    <string name="alt_logoApp">Logo</string>
+
+    <!-- BEER DETAIL -->
+    <string name="configuration_modal_confirmation_title">Confirm</string>
+    <string name="configuration.modal.favorite.delete">¿Do you want to delete this item from favourites?</string>
+    <string name="agregar_a_favoritos">Add to favourites</string>
+    <string name="dismiss">Dismiss</string>
+
+    <!-- ERRORES -->
+    <string name="error_token">El token ha caducado, es necesario volver a autenticarse</string>
+    <string name="error_document_not_found">No se ha encontrado el documento solicitado</string>
+    <string name="error_network_general">Error de comunicaci\u00f3n, por favor vuelva a intentarlo de nuevo</string>
+
+    <!-- LOGOUT -->
+    <string name="main_modal_exit_title">Atenci\u00f3n</string>
+    <string name="main_modal_exit_text">¿Est\u00e1 seguro de que desea cerrar sesi\u00f3n?</string>
+
+
+
+</resources>
