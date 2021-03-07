@@ -17,6 +17,12 @@
         <action
             android:id="@+id/action_nav_menu_to_nav_favorites"
             app:destination="@id/nav_favorites" />
+        <action
+            android:id="@+id/action_nav_menu_to_nav_quality_test"
+            app:destination="@id/nav_quality_test" />
+        <action
+            android:id="@+id/action_nav_menu_to_nav_about"
+            app:destination="@id/nav_about" />
     </fragment>
     <fragment
         android:id="@+id/nav_catalog"
@@ -44,6 +50,18 @@
         <argument
             android:name="beer"
             app:argType="es.jsm.mvvm.beer.model.Beer" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_quality_test"
+        android:name="es.jsm.mvvm.beer.ui.privateviews.barqualitytest.BarQualityTestFragment"
+        android:label="@string/title_fragment_bar_quality_test"
+        tools:layout="@layout/fragment_bar_quality_test">
+    </fragment>
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="es.jsm.mvvm.beer.ui.privateviews.about.AboutFragment"
+        android:label="@string/title_fragment_about"
+        tools:layout="@layout/fragment_about">
     </fragment>
 
 </navigation>

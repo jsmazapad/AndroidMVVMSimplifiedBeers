@@ -3,5 +3,10 @@
 
     <color name="catalogue">#a3c90a</color>
     <color name="favourites">#377cb5</color>
+    <color name="friends">#FF9800</color>
+    <color name="news">#F44336</color>
+    <color name="test_bar">#512DA8</color>
+    <color name="locate_car">#00796B</color>
+    <color name="about">#FF9E80</color>
 
 </resources>

@@ -15,7 +15,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "es.jsm.mvvm.menores"
+        applicationId "es.jsm.mvvm.beer.utilities"
         minSdkVersion 24
         targetSdkVersion 29
         versionCode 3
@@ -119,5 +119,8 @@ dependencies {
     //implementar sqlite con Room
     implementation 'android.arch.persistence.room:runtime:1.1.1'
     annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+    //Videos externos
+    implementation 'com.google.android.exoplayer:exoplayer:2.11.7'
+
     
 }

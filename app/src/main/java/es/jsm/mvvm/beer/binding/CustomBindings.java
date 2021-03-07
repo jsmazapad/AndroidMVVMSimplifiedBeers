@@ -5,10 +5,12 @@ import android.widget.TextView;
 
 import androidx.databinding.BindingAdapter;
 
+import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.material.slider.Slider;
 
 import java.util.List;
 
+import es.jsm.mvvm.beer.providers.ExternalUrlVideoProvider;
 import es.jsm.mvvm.beer.providers.ImagesProvider;
 
 public class CustomBindings {
@@ -49,5 +51,10 @@ public class CustomBindings {
         if(imageUrl != null) {
             ImagesProvider.loadImageForListOrDetail(imageUrl, view, false);
         }
+    }
+
+    @BindingAdapter("videoPath")
+    public static void setVideoPath(PlayerView videoView, String videoPath) {
+        ExternalUrlVideoProvider.configureVideoPlayer( videoView,  videoPath);
     }
 }

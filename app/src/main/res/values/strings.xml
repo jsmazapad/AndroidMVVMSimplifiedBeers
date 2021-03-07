@@ -29,6 +29,8 @@
     <string name="title_fragment_beers">Beers Catalog</string>
     <string name="title_fragment_favorites">Favourites</string>
     <string name="title_fragment_beer_detail">Beer Data</string>
+    <string name="title_fragment_bar_quality_test">Bar Quality Test</string>
+    <string name="title_fragment_about">About</string>
 
     <!-- SPLASH -->
     <string name="alt_base">Base splash</string>
@@ -49,6 +51,8 @@
     <string name="main_modal_exit_title">Atenci\u00f3n</string>
     <string name="main_modal_exit_text">¿Est\u00e1 seguro de que desea cerrar sesi\u00f3n?</string>
 
+    <!-- ABOUT -->
+    <string name="github_page">jsmazapad github page</string>
 
 
 </resources>
