@@ -44,6 +44,7 @@ android {
     def appVersionScreenPrefix = "appVersionScreenPrefix"
     def appName = "app_name"
     def baseUrl = "BASE_URL"
+    def feedUrl = "FEED_URL"
     def version = "VERSION"
     flavorDimensions 'JSM'
     productFlavors {
@@ -54,6 +55,7 @@ android {
                     [mapKey: ""]
             buildConfigField('String', appVersionScreenPrefix, "\"\"")
             buildConfigField('String', baseUrl, "\"https://api.punkapi.com/v2/\"")
+            buildConfigField('String', feedUrl, "\"http://feeds.feedburner.com/\"")
             buildConfigField('String', version, "\"v1.0.0\"")
             resValue "string", appName, "Beers Fav"
 
@@ -64,6 +66,7 @@ android {
                     [mapKey: ""]
             buildConfigField('String', appVersionScreenPrefix, "\"PRE\"")
             buildConfigField('String', baseUrl, "\"https://api.punkapi.com/v2/\"")
+            buildConfigField('String', feedUrl, "\"http://feeds.feedburner.com/\"")
             buildConfigField('String', version, "\"v1.0.0\"")
             resValue "string", appName, "Beers"
 
@@ -76,6 +79,7 @@ android {
                     [mapKey: ""]
             buildConfigField('String', appVersionScreenPrefix, "\"DES\"")
             buildConfigField('String', baseUrl, "\"https://api.punkapi.com/v2/\"")
+            buildConfigField('String', feedUrl, "\"http://feeds.feedburner.com/\"")
             buildConfigField('String', version, "\"v1.0.0\"")
             resValue "string", appName, "Beers"
         }
@@ -98,15 +102,21 @@ dependencies {
     implementation 'cat.ereza:customactivityoncrash:2.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
-    implementation 'androidx.navigation:navigation-fragment:2.3.3'
-    implementation 'androidx.navigation:navigation-ui:2.3.3'
+    implementation 'androidx.navigation:navigation-fragment:2.3.4'
+    implementation 'androidx.navigation:navigation-ui:2.3.4'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation('com.squareup.retrofit2:converter-simplexml:2.9.0') {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     testImplementation 'junit:junit:4.13'
     testImplementation 'net.jodah:concurrentunit:0.4.6'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

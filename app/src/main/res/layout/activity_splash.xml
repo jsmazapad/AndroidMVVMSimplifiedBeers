@@ -37,7 +37,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
-        android:text="A MVVM App using Punk API and other Goodies"
+        android:text="@string/app_splash_title_legend"
         android:textAlignment="center"
         android:textColor="@color/colored_text"
         android:textSize="18sp"

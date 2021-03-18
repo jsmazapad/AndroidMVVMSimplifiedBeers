@@ -166,4 +166,6 @@ public class BeerDetailViewModel extends LoadingViewModel implements Observable 
 
 
 
+
+
 }

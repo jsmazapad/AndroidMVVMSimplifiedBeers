@@ -63,5 +63,17 @@
         android:label="@string/title_fragment_about"
         tools:layout="@layout/fragment_about">
     </fragment>
+    <fragment
+        android:id="@+id/nav_friends"
+        android:name="es.jsm.mvvm.beer.ui.privateviews.friends.FriendsFragment"
+        android:label="@string/title_fragment_friends"
+        tools:layout="@layout/fragment_friends">
+    </fragment>
+    <fragment
+        android:id="@+id/nav_vehicle_location"
+        android:name="es.jsm.mvvm.beer.ui.privateviews.vehiclelocation.VehicleLocationFragment"
+        android:label="@string/title_fragment_vehicle_location"
+        tools:layout="@layout/fragment_vehicle_location">
+    </fragment>
 
 </navigation>

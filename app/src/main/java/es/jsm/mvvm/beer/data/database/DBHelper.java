@@ -4,11 +4,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.room.Room;
 
 import java.util.List;
 
 import es.jsm.mvvm.beer.model.Beer;
+import es.jsm.mvvm.beer.model.Friend;
 
 /**
  * Helper para manipular la BD
@@ -25,6 +27,11 @@ public class DBHelper {
         sharedDBPool= new DBHelper();
         appDatabase = Room.databaseBuilder(context, AppDatabase.class, DB_NAME).allowMainThreadQueries().build();
     }
+
+    /*
+    BEERS
+     */
+
 
     public static void insertBeer(final Beer beer) {
         if(getBeerById(beer) == null) {
@@ -49,6 +56,44 @@ public class DBHelper {
 
     public static void deleteBeersById(Beer beer) {
         appDatabase.beerDao().deleteById(beer.getId());
+    }
+
+    public static void insertFriend(final Friend friend, MutableLiveData<Boolean> ended) {
+        //Es muy dificil evitar duplicados porque puede cambiar el teléfono y el nombre,
+        //realmente habría que guardar el id que se obtiene del proveedor de contenido
+        // pero como mitigación añadimos esta condición
+        if(getFriendByPhoneNumber(friend) == null) {
+            new AsyncTask<Void, Void, Void>() {
+                @Override
+                protected Void doInBackground(Void... voids) {
+                    appDatabase.friendDao().insert(friend);
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    super.onPostExecute(aVoid);
+                    ended.setValue(true);
+                }
+            }.execute();
+        }
+    }
+
+    /*
+    FRIENDS
+     */
+
+    public static List<Friend> getFriends() {
+        return appDatabase.friendDao().getFriends();
+    }
+
+
+    public static Friend getFriendByPhoneNumber(Friend friend) {
+        return appDatabase.friendDao().selectByPhone(friend.getPhoneNumber());
+    }
+
+    public static void deleteFriendById(Friend friend) {
+        appDatabase.friendDao().deleteById(friend.getInternalId());
     }
 
 }

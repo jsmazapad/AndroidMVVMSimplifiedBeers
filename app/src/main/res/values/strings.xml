@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_large_title">My Favourite Beers</string>
+    <string name="app_large_title">Beer utilities</string>
+    <string name="app_splash_title_legend">A MVVM App using Punk API and other Goodies</string>
 
     <!-- ERRORS -->
     <string name="customactivityoncrash_error_activity_error_occurred_explanation">Ha ocurrido un error insesperado</string>
@@ -20,10 +21,10 @@
 
 
     <!-- -->
-    <string name="default_recyclerview_emptyMessage">No hay resultados que mostrar</string>
-    <string name="error_network_ask_retry"> ¿Desea volver a cargar los datos?</string>
-    <string name="default_modal_okButton">Aceptar</string>
-    <string name="default_modal_cancelButton">Cancelar</string>
+    <string name="default_recyclerview_emptyMessage">No results found</string>
+    <string name="error_network_ask_retry"> ¿Do you want to reload data?</string>
+    <string name="default_modal_okButton">Ok</string>
+    <string name="default_modal_cancelButton">Cancel</string>
 
     <!-- TITLES -->
     <string name="title_fragment_beers">Beers Catalog</string>
@@ -31,6 +32,8 @@
     <string name="title_fragment_beer_detail">Beer Data</string>
     <string name="title_fragment_bar_quality_test">Bar Quality Test</string>
     <string name="title_fragment_about">About</string>
+    <string name="title_fragment_friends">Friends</string>
+    <string name="title_fragment_vehicle_location">Vehicle location</string>
 
     <!-- SPLASH -->
     <string name="alt_base">Base splash</string>
@@ -38,14 +41,13 @@
 
     <!-- BEER DETAIL -->
     <string name="configuration_modal_confirmation_title">Confirm</string>
-    <string name="configuration.modal.favorite.delete">¿Do you want to delete this item from favourites?</string>
+    <string name="configuration_modal_favorite_delete">¿Do you want to delete this item from favourites?</string>
     <string name="agregar_a_favoritos">Add to favourites</string>
     <string name="dismiss">Dismiss</string>
 
     <!-- ERRORES -->
     <string name="error_token">El token ha caducado, es necesario volver a autenticarse</string>
-    <string name="error_document_not_found">No se ha encontrado el documento solicitado</string>
-    <string name="error_network_general">Error de comunicaci\u00f3n, por favor vuelva a intentarlo de nuevo</string>
+    <string name="error_network_general">Network communication error, please try again</string>
 
     <!-- LOGOUT -->
     <string name="main_modal_exit_title">Atenci\u00f3n</string>
@@ -53,6 +55,26 @@
 
     <!-- ABOUT -->
     <string name="github_page">jsmazapad github page</string>
+
+    <!-- FRIENDS -->
+    <string name="add_friend_button_text">Add friend</string>
+    <string name="configuration_modal_friends_delete">¿Do you want to delete this item from friends?</string>
+    <string name="phone_error">Invalid number or device without call phone capabilities</string>
+    <string name="contact_permission_error">El permiso de acceso a contactos es necesario para poder agregar contactos a su lista de amigos</string>
+    <string name="duplicated_contact_error">You already have a register with this phone number, check</string>
+
+    <!-- LOCATE VEHICLE -->
+    <string name="location_permission_error">This app doesn\'t have permission to access location, please give the permission and try again</string>
+    <string name="location_permission_asking_title">Location Required</string>
+    <string name="location_permission_asking_text">We need the location permission to locate your vehicle, we don´t use the location permission for other purposes</string>
+    <string name="location_error">Your location is unavailable at this moment</string>
+    <string name="location_after_geocoder_data_error">Unknown synchronization error, please reopen the app and try again</string>
+    <string name="eocoder_data_error">System can´t obtain the address at this moment, please try again later</string>
+    <string name="open_navigation_error">We`re having problems opening your navigation app. Please ensure you have a navigation app, otherwise maybe something was wrong storing the direction…</string>
+    <string name="vehicle_location_legend">Push the locate button to save your current location, this will erase the previous location. Push the navigate button to open the location in your navigator</string>
+    <string name="location_stored_label">Location stored:</string>
+    <string name="show_on_navigator_button_label">Show on navigator</string>
+    <string name="locate_button_label">Locate</string>
 
 
 </resources>

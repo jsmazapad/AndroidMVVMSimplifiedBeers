@@ -36,7 +36,12 @@ public class ExternalActionsManager {
      * @return Booleano indicando si la operación ha tenido éxito
      */
     public static boolean callPhone(String uriString, Context context) {
+        final String TEL_SCHEME = "tel://";
         try {
+            if(!uriString.contains(TEL_SCHEME))
+            {
+                uriString = TEL_SCHEME + uriString;
+            }
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(uriString));
             context.startActivity(intent);
         } catch (Exception e) {

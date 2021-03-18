@@ -13,6 +13,7 @@ import java.util.List;
 
 import es.jsm.mvvm.beer.core.data.network.responses.NetworkElementResponse;
 import es.jsm.mvvm.beer.core.data.network.responses.NetworkListResponse;
+import es.jsm.mvvm.beer.core.data.network.responses.XMLObjectResponse;
 import es.jsm.mvvm.beer.core.data.repositories.responses.ElementResponse;
 import es.jsm.mvvm.beer.core.data.repositories.responses.ListResponse;
 import retrofit2.Call;
@@ -205,6 +206,34 @@ public abstract class RetrofitService {
         };
 
     }
+
+    public static <O, E extends XMLObjectResponse<O>> Callback<E> createXMLElementToListAutoConversionCallBack(Class<E> responseClass, MutableLiveData<ListResponse<O>> liveDataVar) {
+
+        return new Callback<E>() {
+            @Override
+            public void onResponse(Call<E> call,
+                                   Response<E> response) {
+                if (response.isSuccessful()) {
+                    liveDataVar.setValue(new ListResponse<O>(response.body().getItems()));
+                } else {
+                    try {
+                        Log.d("Network Error", response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    liveDataVar.setValue(new ListResponse<O>(errorTreatment.handleNetworkError(response, null)));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<E> call, Throwable t) {
+                t.printStackTrace();
+                liveDataVar.setValue(new ListResponse<O>(errorTreatment.handleNetworkError(null, t)));
+            }
+        };
+
+    }
+
 
     /**
      * Create un convertidor GSON y registro los métodos de deserialización custom
