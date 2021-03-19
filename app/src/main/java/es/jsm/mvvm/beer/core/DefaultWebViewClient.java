@@ -9,15 +9,19 @@ import android.webkit.WebViewClient;
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.MutableLiveData;
 
+import es.jsm.mvvm.beer.core.exceptions.BaseException;
+
 /**
  * Cliente web para su suo por defecto en fragments o activities que usen webviews
  */
 public class DefaultWebViewClient extends WebViewClient {
 
     protected MutableLiveData<Boolean> isLoading;
+    MutableLiveData<BaseException> error;
 
-    public DefaultWebViewClient(MutableLiveData<Boolean> isLoading) {
+    public DefaultWebViewClient(MutableLiveData<Boolean> isLoading, MutableLiveData<BaseException> error) {
         this.isLoading = isLoading;
+        this.error = error;
     }
 
     @Override
@@ -30,6 +34,8 @@ public class DefaultWebViewClient extends WebViewClient {
     public void onReceivedError(WebView view, WebResourceRequest request,
                                 WebResourceError error) {
         isLoading.setValue(false);
+        //Se silencia este error porque puede dar por cargas parciales lentas o recursos
+        //this.error.setValue(new BaseException(view.getContext().getString(R.string.webview_loading_error), false));
         super.onReceivedError(view, request, error);
     }
 

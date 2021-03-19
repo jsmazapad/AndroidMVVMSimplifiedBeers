@@ -1,5 +1,8 @@
 package es.jsm.mvvm.beer.config;
 
+/**
+ * Parámetros de configuración no recogidos en otras clases de configuración
+ */
 public class GeneralConfig {
 
     /**
@@ -14,4 +17,12 @@ public class GeneralConfig {
      * Alto para descargar imágenes en thumbnails
      */
     public static final int IMAGE_THUMBNAIL_HEIGHT= 80;
+
+    public static final float MIN_LIGHT_FOR_SENSOR= 88;
+
+    public static final float MAX_LIGHT_FOR_SENSOR= 100;
+
+    public static final int LIGHT_SENSOR_TEST_SAMPLES_NUM= 15;
+    public static final String BUTTON_LATER_TEXT = "Later";
+    public static final String BUTTON_OK_TEXT = "Ok";
 }

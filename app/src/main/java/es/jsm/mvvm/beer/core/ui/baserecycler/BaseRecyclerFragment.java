@@ -23,7 +23,7 @@ public abstract class BaseRecyclerFragment<BT extends ViewDataBinding, VM extend
 
     protected VM viewModel;
     private BaseRecyclerAdapter mAdapter;
-    private RecyclerView recyclerView;
+    protected RecyclerView recyclerView;
     protected BT binding;
 
     @Override

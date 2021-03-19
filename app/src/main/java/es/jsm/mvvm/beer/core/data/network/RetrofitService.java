@@ -7,12 +7,16 @@ import androidx.lifecycle.MutableLiveData;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.simpleframework.xml.convert.AnnotationStrategy;
+import org.simpleframework.xml.core.Persister;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
 import es.jsm.mvvm.beer.core.data.network.responses.NetworkElementResponse;
 import es.jsm.mvvm.beer.core.data.network.responses.NetworkListResponse;
+import es.jsm.mvvm.beer.core.data.network.responses.XMLObjectResponse;
 import es.jsm.mvvm.beer.core.data.repositories.responses.ElementResponse;
 import es.jsm.mvvm.beer.core.data.repositories.responses.ListResponse;
 import retrofit2.Call;
@@ -21,6 +25,7 @@ import retrofit2.Converter;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
 /**
  * Clase base para crear servicios de retrofit de manera dinámica y crear distintos callbacks
@@ -60,10 +65,21 @@ public abstract class RetrofitService {
         RetrofitService.deserializerProvider = deserializerProvider;
         Retrofit retrofit;
         if (!retrofitMap.containsKey(serviceClass)) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(baseUrl)
-                    .addConverterFactory(createGsonConverter())
-                    .build();
+            Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
+                    .baseUrl(baseUrl);
+            //Si tiene proveedor es json
+            if(deserializerProvider != null){
+                retrofitBuilder.addConverterFactory(createGsonConverter());
+                //En caso contrario es xml
+            }else{
+                retrofitBuilder.addConverterFactory(SimpleXmlConverterFactory.createNonStrict(
+                        new Persister(new AnnotationStrategy())));
+            }
+
+
+
+
+            retrofit = retrofitBuilder.build();
             retrofitMap.put(serviceClass, retrofit);
         } else {
             retrofit = retrofitMap.get(serviceClass);
@@ -205,6 +221,34 @@ public abstract class RetrofitService {
         };
 
     }
+
+    public static <O, E extends XMLObjectResponse<O>> Callback<E> createXMLElementToListAutoConversionCallBack(Class<E> responseClass, MutableLiveData<ListResponse<O>> liveDataVar) {
+
+        return new Callback<E>() {
+            @Override
+            public void onResponse(Call<E> call,
+                                   Response<E> response) {
+                if (response.isSuccessful()) {
+                    liveDataVar.setValue(new ListResponse<O>(response.body().getItems()));
+                } else {
+                    try {
+                        Log.d("Network Error", response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    liveDataVar.setValue(new ListResponse<O>(errorTreatment.handleNetworkError(response, null)));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<E> call, Throwable t) {
+                t.printStackTrace();
+                liveDataVar.setValue(new ListResponse<O>(errorTreatment.handleNetworkError(null, t)));
+            }
+        };
+
+    }
+
 
     /**
      * Create un convertidor GSON y registro los métodos de deserialización custom

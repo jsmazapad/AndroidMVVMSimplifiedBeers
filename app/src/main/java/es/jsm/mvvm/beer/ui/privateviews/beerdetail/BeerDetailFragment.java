@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import es.jsm.mvvm.beer.R;
 import es.jsm.mvvm.beer.core.ui.base.BaseFragment;
-
 import es.jsm.mvvm.beer.databinding.FragmentBeersDetailBinding;
 
 

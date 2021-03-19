@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/nav_login_gateway"
         android:name="es.jsm.mvvm.beer.ui.privateviews.menu.MenuFragment"
-        android:label="@string/menu_login"
+        android:label="@string/title_fragment_login"
         tools:layout="@layout/fragment_menu">
     </fragment>
     <include app:graph="@navigation/private_views_navigation" />
