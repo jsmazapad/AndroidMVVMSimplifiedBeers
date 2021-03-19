@@ -7,6 +7,9 @@ import androidx.lifecycle.MutableLiveData;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.simpleframework.xml.convert.AnnotationStrategy;
+import org.simpleframework.xml.core.Persister;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +25,7 @@ import retrofit2.Converter;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
 /**
  * Clase base para crear servicios de retrofit de manera dinámica y crear distintos callbacks
@@ -61,10 +65,21 @@ public abstract class RetrofitService {
         RetrofitService.deserializerProvider = deserializerProvider;
         Retrofit retrofit;
         if (!retrofitMap.containsKey(serviceClass)) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(baseUrl)
-                    .addConverterFactory(createGsonConverter())
-                    .build();
+            Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
+                    .baseUrl(baseUrl);
+            //Si tiene proveedor es json
+            if(deserializerProvider != null){
+                retrofitBuilder.addConverterFactory(createGsonConverter());
+                //En caso contrario es xml
+            }else{
+                retrofitBuilder.addConverterFactory(SimpleXmlConverterFactory.createNonStrict(
+                        new Persister(new AnnotationStrategy())));
+            }
+
+
+
+
+            retrofit = retrofitBuilder.build();
             retrofitMap.put(serviceClass, retrofit);
         } else {
             retrofit = retrofitMap.get(serviceClass);

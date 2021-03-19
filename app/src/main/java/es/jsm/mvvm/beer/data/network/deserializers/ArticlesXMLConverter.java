@@ -7,6 +7,7 @@ import org.simpleframework.xml.stream.OutputNode;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.jsm.mvvm.beer.data.network.deserializers.xmlwrapper.FeedXMEntity;
 import es.jsm.mvvm.beer.model.Article;
 
 
@@ -19,11 +20,20 @@ public class ArticlesXMLConverter implements Converter<FeedXMEntity> {
        List <Article> articles = new ArrayList<>();
 
         //Avanzamos hasta la lista real
-        node.getNext();
-        node.getNext();
-        node.getNext();
 
-        InputNode itemNode = node.getNext("item");
+        InputNode nextNode = node.getNext("channel");
+        nextNode.getNext("title");
+         nextNode.getNext("link");
+        nextNode.getNext("description");
+         nextNode.getNext("language");
+        nextNode.getNext("lastBuildDate");
+        nextNode.getNext("generator");
+        nextNode.getNext("docs");
+        nextNode.getNext("link");
+        nextNode.getNext("info");
+         nextNode.getNext("link");
+
+        InputNode itemNode = nextNode.getNext("item");
         while (itemNode != null) {
 
 
@@ -32,6 +42,7 @@ public class ArticlesXMLConverter implements Converter<FeedXMEntity> {
             String description  = itemNode.getNext("description").getValue();
             String author  = itemNode.getNext("author").getValue();
             String pubDateString  = itemNode.getNext("pubDate").getValue();
+            itemNode.getNext("guid");
             String origLink  = itemNode.getNext("origLink").getValue();
 
             Article article = new Article(title, link, description, author, pubDateString, origLink);
@@ -39,7 +50,7 @@ public class ArticlesXMLConverter implements Converter<FeedXMEntity> {
             articles.add(article);
 
             //Iteramos al siguiente elemento
-            itemNode = node.getNext("featureMember");
+            itemNode = node.getNext("item");
         }
 
 

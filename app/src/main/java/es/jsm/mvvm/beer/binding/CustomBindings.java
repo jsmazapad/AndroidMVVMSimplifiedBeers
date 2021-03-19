@@ -1,5 +1,8 @@
 package es.jsm.mvvm.beer.binding;
 
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,6 +32,16 @@ public class CustomBindings {
         tv.setText(textConverted);
     }
 
+    @BindingAdapter("htmlClearedText")
+    public static void htmlClearedText(TextView tv, String text) {
+        text = text.replaceAll("<(.*?)\\>"," ");//Removes all items in brackets
+        text = text.replaceAll("<(.*?)\\\n"," ");//Must be undeneath
+        text = text.replaceFirst("(.*?)\\>", " ");//Removes any connected item to the last bracket
+        text = text.replaceAll("&nbsp;"," ");
+        text = text.replaceAll("&amp;"," ");
+        tv.setText(text);
+    }
+
     /**
      * Custom Binding Adapter para añadir un listener de cambios a Slider de material
      * @param slider
@@ -53,8 +66,35 @@ public class CustomBindings {
         }
     }
 
+    /**
+     * Custom Binding Adapter para cargar una url de un video en un PlayerView
+     * @param videoView
+     * @param videoPath
+     */
     @BindingAdapter("videoPath")
     public static void setVideoPath(PlayerView videoView, String videoPath) {
         ExternalUrlVideoProvider.configureVideoPlayer( videoView,  videoPath);
+    }
+
+    /**
+     * Custom binding para setear un webclient a un webview
+     * @param view
+     * @param client
+     */
+    @BindingAdapter({"setWebViewClient"})
+    public static void setWebViewClient(WebView view, WebViewClient client) {
+        WebSettings webSettings = view.getSettings();
+        webSettings.setDomStorageEnabled(true);
+        view.setWebViewClient(client);
+    }
+
+    /**
+     * Custom binding para cargar una url en un webview
+     * @param view
+     * @param url
+     */
+    @BindingAdapter({"loadUrl"})
+    public static void loadUrl(WebView view, String url) {
+        view.loadUrl(url);
     }
 }

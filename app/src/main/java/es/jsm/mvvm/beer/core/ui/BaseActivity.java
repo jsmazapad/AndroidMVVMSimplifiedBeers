@@ -2,17 +2,12 @@ package es.jsm.mvvm.beer.core.ui;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import es.jsm.mvvm.beer.R;
-import es.jsm.mvvm.beer.ui.publicviews.PublicViewsViewModel;
 
 /**
  * Clase base para Activities con jetpack navigation

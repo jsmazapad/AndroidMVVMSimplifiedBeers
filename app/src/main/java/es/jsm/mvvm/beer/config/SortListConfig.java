@@ -2,6 +2,7 @@ package es.jsm.mvvm.beer.config;
 
 import java.util.Comparator;
 
+import es.jsm.mvvm.beer.model.Article;
 import es.jsm.mvvm.beer.model.Beer;
 import es.jsm.mvvm.beer.model.Friend;
 
@@ -24,6 +25,16 @@ public class SortListConfig {
             return 1;
         }else {
             return o1.getName().compareTo(o2.getName());
+        }
+    };
+
+    public final static Comparator<Article> NEWS_COMPARATOR = (o1, o2) -> {
+        if (o1.getPubDateString() == null){
+            return 1;
+        }else if(o2.getPubDateString() == null){
+            return -1;
+        }else {
+            return o2.getPubDateString().compareTo(o1.getPubDateString());
         }
     };
 

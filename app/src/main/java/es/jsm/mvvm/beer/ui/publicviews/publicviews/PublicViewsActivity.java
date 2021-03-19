@@ -1,15 +1,11 @@
-package es.jsm.mvvm.beer.ui.publicviews;
+package es.jsm.mvvm.beer.ui.publicviews.publicviews;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import es.jsm.mvvm.beer.R;
 import es.jsm.mvvm.beer.core.ui.BaseActivity;
-import es.jsm.mvvm.beer.providers.ClearDataProvider;
 
 public class PublicViewsActivity extends BaseActivity<PublicViewsViewModel>  {
 

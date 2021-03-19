@@ -33,6 +33,8 @@
     <string name="title_fragment_bar_quality_test">Bar Quality Test</string>
     <string name="title_fragment_about">About</string>
     <string name="title_fragment_friends">Friends</string>
+    <string name="title_fragment_news">News</string>
+    <string name="title_fragment_article_detail">News</string>
     <string name="title_fragment_vehicle_location">Vehicle location</string>
 
     <!-- SPLASH -->
@@ -75,6 +77,9 @@
     <string name="location_stored_label">Location stored:</string>
     <string name="show_on_navigator_button_label">Show on navigator</string>
     <string name="locate_button_label">Locate</string>
+    <string name="webview_loading_error">Loading error</string>
+    <string name="login_button_text">Login</string>
+    <string name="validate_password_ko_error">Password is invalid</string>
 
 
 </resources>

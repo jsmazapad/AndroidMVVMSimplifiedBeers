@@ -8,11 +8,12 @@ import es.jsm.mvvm.beer.core.data.network.responses.NetworkListResponse;
 import es.jsm.mvvm.beer.core.data.repositories.responses.ElementResponse;
 import es.jsm.mvvm.beer.core.data.repositories.responses.ListResponse;
 import es.jsm.mvvm.beer.data.database.DBHelper;
+import es.jsm.mvvm.beer.data.mocked.LoginValidatorMocked;
 import es.jsm.mvvm.beer.data.network.BeersApiService;
 import es.jsm.mvvm.beer.data.network.BeersDeserializerProvider;
 import es.jsm.mvvm.beer.data.network.BeersNetworkErrorTreatment;
 import es.jsm.mvvm.beer.data.network.FeedsApiService;
-import es.jsm.mvvm.beer.data.network.deserializers.FeedXMEntity;
+import es.jsm.mvvm.beer.data.network.deserializers.xmlwrapper.FeedXMEntity;
 import es.jsm.mvvm.beer.model.Article;
 import es.jsm.mvvm.beer.model.Beer;
 import es.jsm.mvvm.beer.model.Friend;
@@ -25,7 +26,7 @@ import retrofit2.Call;
 public class BeersRepository {
 
     private static final BeersApiService beersCatalogService = RetrofitService.createService(BeersApiService.class, new BeersNetworkErrorTreatment(), new BeersDeserializerProvider(), BuildConfig.BASE_URL);
-    private static final FeedsApiService beersFeedService = RetrofitService.createService(FeedsApiService.class, new BeersNetworkErrorTreatment(), new BeersDeserializerProvider(), BuildConfig.FEED_URL);
+    private static final FeedsApiService beersFeedService = RetrofitService.createService(FeedsApiService.class, new BeersNetworkErrorTreatment(), null, BuildConfig.FEED_URL);
     private static final String FEED_FORMAT = "xml";
 
     /**
@@ -159,6 +160,18 @@ public class BeersRepository {
     public static void setVehicleLocation(VehicleLocation location) {
         PreferencesProvider.setVehicleLocation(location);
     }
+
+
+    /**
+     * Comprueba si el password es correcto o no usando programación reactiva para devolver el resultado
+     * @param isValid
+     * @param password
+     */
+    public static void validatePassword(MutableLiveData<Boolean> isValid, String password){
+        LoginValidatorMocked.validatePassword(isValid, password);
+    }
+
+
 
 
 }

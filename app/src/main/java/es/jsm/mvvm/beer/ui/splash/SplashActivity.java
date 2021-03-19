@@ -7,9 +7,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.jsm.mvvm.beer.R;
-import es.jsm.mvvm.beer.core.ui.BaseActivity;
 import es.jsm.mvvm.beer.ui.privateviews.main.MainActivity;
-import es.jsm.mvvm.beer.ui.publicviews.PublicViewsActivity;
+import es.jsm.mvvm.beer.ui.publicviews.publicviews.PublicViewsActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -39,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void exitSplash() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, PublicViewsActivity.class);
         startActivity(intent);
         finish();
     }

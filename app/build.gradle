@@ -57,7 +57,7 @@ android {
             buildConfigField('String', baseUrl, "\"https://api.punkapi.com/v2/\"")
             buildConfigField('String', feedUrl, "\"http://feeds.feedburner.com/\"")
             buildConfigField('String', version, "\"v1.0.0\"")
-            resValue "string", appName, "Beers Fav"
+            resValue "string", appName, "Beer Utilities"
 
         }
         pre {
@@ -68,7 +68,7 @@ android {
             buildConfigField('String', baseUrl, "\"https://api.punkapi.com/v2/\"")
             buildConfigField('String', feedUrl, "\"http://feeds.feedburner.com/\"")
             buildConfigField('String', version, "\"v1.0.0\"")
-            resValue "string", appName, "Beers"
+            resValue "string", appName, "Beer Utilities"
 
 
         }
@@ -81,7 +81,7 @@ android {
             buildConfigField('String', baseUrl, "\"https://api.punkapi.com/v2/\"")
             buildConfigField('String', feedUrl, "\"http://feeds.feedburner.com/\"")
             buildConfigField('String', version, "\"v1.0.0\"")
-            resValue "string", appName, "Beers"
+            resValue "string", appName, "Beer Utilities"
         }
 
 

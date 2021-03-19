@@ -1,4 +1,4 @@
-package es.jsm.mvvm.beer.data.network.deserializers;
+package es.jsm.mvvm.beer.data.network.deserializers.xmlwrapper;
 
 import org.simpleframework.xml.Root;
 import org.simpleframework.xml.convert.Convert;
@@ -6,6 +6,7 @@ import org.simpleframework.xml.convert.Convert;
 import java.util.List;
 
 import es.jsm.mvvm.beer.core.data.network.responses.XMLObjectResponse;
+import es.jsm.mvvm.beer.data.network.deserializers.ArticlesXMLConverter;
 import es.jsm.mvvm.beer.model.Article;
 
 @Root(strict = false)

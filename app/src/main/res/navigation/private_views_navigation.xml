@@ -23,6 +23,15 @@
         <action
             android:id="@+id/action_nav_menu_to_nav_about"
             app:destination="@id/nav_about" />
+        <action
+            android:id="@+id/action_nav_menu_to_nav_friends"
+            app:destination="@id/nav_friends" />
+        <action
+            android:id="@+id/action_nav_menu_to_nav_vehicle_location"
+            app:destination="@id/nav_vehicle_location" />
+        <action
+            android:id="@+id/action_nav_menu_to_nav_news"
+            app:destination="@id/nav_news" />
     </fragment>
     <fragment
         android:id="@+id/nav_catalog"
@@ -68,6 +77,24 @@
         android:name="es.jsm.mvvm.beer.ui.privateviews.friends.FriendsFragment"
         android:label="@string/title_fragment_friends"
         tools:layout="@layout/fragment_friends">
+    </fragment>
+    <fragment
+        android:id="@+id/nav_news"
+        android:name="es.jsm.mvvm.beer.ui.privateviews.news.NewsFragment"
+        android:label="@string/title_fragment_news"
+        tools:layout="@layout/fragment_news">
+        <action
+            android:id="@+id/action_nav_news_to_nav_article"
+            app:destination="@id/nav_article" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_article"
+        android:name="es.jsm.mvvm.beer.ui.privateviews.articledetail.ArticleDetailFragment"
+        android:label="@string/title_fragment_article_detail"
+        tools:layout="@layout/fragment_article_detail">
+        <argument
+            android:name="url"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/nav_vehicle_location"

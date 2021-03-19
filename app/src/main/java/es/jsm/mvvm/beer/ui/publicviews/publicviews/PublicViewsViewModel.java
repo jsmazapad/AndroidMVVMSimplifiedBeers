@@ -1,4 +1,4 @@
-package es.jsm.mvvm.beer.ui.publicviews;
+package es.jsm.mvvm.beer.ui.publicviews.publicviews;
 
 import android.app.Application;
 import android.content.Context;
@@ -10,11 +10,8 @@ public class PublicViewsViewModel extends AndroidViewModel {
 
     public PublicViewsViewModel(Application application) {
         super(application);
-        Log.d("ok", "ok");
-    }
-
-    public void goWebView(Context context) {
 
     }
+
 
 }
