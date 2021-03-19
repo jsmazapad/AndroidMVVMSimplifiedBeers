@@ -8,7 +8,6 @@ import androidx.navigation.NavController;
 
 import es.jsm.mvvm.beer.core.ui.baserecycler.BaseRecyclerAdapter;
 import es.jsm.mvvm.beer.core.ui.baserecycler.BaseRecyclerViewModel;
-import es.jsm.mvvm.beer.model.Beer;
 import es.jsm.mvvm.beer.model.Friend;
 
 

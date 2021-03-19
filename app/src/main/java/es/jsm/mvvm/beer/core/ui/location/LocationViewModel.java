@@ -21,6 +21,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 
 import es.jsm.mvvm.beer.R;
+import es.jsm.mvvm.beer.config.GeneralConfig;
 import es.jsm.mvvm.beer.config.PermissionsConfig;
 import es.jsm.mvvm.beer.core.ui.loading.LoadingViewModel;
 import es.jsm.mvvm.beer.core.utils.GpsUtils;
@@ -84,7 +85,7 @@ public class LocationViewModel extends LoadingViewModel {
 
 
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ModalMessage.showModalMessage(context, context.getString(R.string.location_permission_asking_title), context.getString(R.string.location_permission_asking_text), "Aceptar", new DialogInterface.OnClickListener() {
+            ModalMessage.showModalMessage(context, context.getString(R.string.location_permission_asking_title), context.getString(R.string.location_permission_asking_text), GeneralConfig.BUTTON_OK_TEXT, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Fragment navHostFragment =  ((AppCompatActivity) context).getSupportFragmentManager().getPrimaryNavigationFragment();
@@ -95,7 +96,7 @@ public class LocationViewModel extends LoadingViewModel {
                                 locationRequestCode);
                     }
                 }
-            }, "En otro momento", null);
+            }, GeneralConfig.BUTTON_LATER_TEXT, null);
 
 
         } else {

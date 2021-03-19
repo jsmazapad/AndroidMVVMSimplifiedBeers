@@ -4,6 +4,6 @@
     <item
         android:id="@+id/toggleFavorite"
         android:icon="@drawable/ic_favorite_empty"
-        android:title="@string/agregar_a_favoritos"
+        android:title="@string/add_to_favourites"
         app:showAsAction="always" />
 </menu>

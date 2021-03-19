@@ -1,6 +1,5 @@
 package es.jsm.mvvm.beer.providers;
 
-import android.icu.text.UnicodeSetIterator;
 import android.net.Uri;
 
 import com.google.android.exoplayer2.SimpleExoPlayer;

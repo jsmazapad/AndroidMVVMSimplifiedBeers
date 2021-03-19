@@ -2,7 +2,7 @@
     <string name="app_large_title">Beer utilities</string>
     <string name="app_splash_title_legend">A MVVM App using Punk API and other Goodies</string>
 
-    <!-- ERRORS -->
+    <!-- CUSTOM INTERFACE ERRORS -->
     <string name="customactivityoncrash_error_activity_error_occurred_explanation">Ha ocurrido un error insesperado</string>
     <string name="customactivityoncrash_error_activity_restart_app">Reiniciar app</string>
     <string name="customactivityoncrash_error_activity_close_app">Cerrar app</string>
@@ -13,20 +13,18 @@
     <string name="customactivityoncrash_error_activity_error_details_copied">Copiado en el portapapeles</string>
     <string name="customactivityoncrash_error_activity_error_details_clipboard_label">Información del error</string>
 
-    <!-- -->
-    <string name="menu_home">Home</string>
-    <string name="menu_login">Login</string>
-    <string name="menu_close">Close session</string>
-    <string name="menu_beers">Beers</string>
 
 
-    <!-- -->
+
+    <!--GENERAL -->
     <string name="default_recyclerview_emptyMessage">No results found</string>
     <string name="error_network_ask_retry"> ¿Do you want to reload data?</string>
     <string name="default_modal_okButton">Ok</string>
     <string name="default_modal_cancelButton">Cancel</string>
 
     <!-- TITLES -->
+    <string name="title_fragment_home">Home</string>
+    <string name="title_fragment_login">Login</string>
     <string name="title_fragment_beers">Beers Catalog</string>
     <string name="title_fragment_favorites">Favourites</string>
     <string name="title_fragment_beer_detail">Beer Data</string>
@@ -36,6 +34,7 @@
     <string name="title_fragment_news">News</string>
     <string name="title_fragment_article_detail">News</string>
     <string name="title_fragment_vehicle_location">Vehicle location</string>
+    <string name="menu_close">Close session</string>
 
     <!-- SPLASH -->
     <string name="alt_base">Base splash</string>
@@ -44,26 +43,31 @@
     <!-- BEER DETAIL -->
     <string name="configuration_modal_confirmation_title">Confirm</string>
     <string name="configuration_modal_favorite_delete">¿Do you want to delete this item from favourites?</string>
-    <string name="agregar_a_favoritos">Add to favourites</string>
+    <string name="add_to_favourites">Add to favourites</string>
     <string name="dismiss">Dismiss</string>
+    <string name="favourites_toast_message">%s saved in favourites</string>
+    <string name="favourites_deleted_message">%s deleted from favourites</string>
 
     <!-- ERRORES -->
-    <string name="error_token">El token ha caducado, es necesario volver a autenticarse</string>
+    <string name="error_token">Invalid token, please login again</string>
     <string name="error_network_general">Network communication error, please try again</string>
 
     <!-- LOGOUT -->
-    <string name="main_modal_exit_title">Atenci\u00f3n</string>
-    <string name="main_modal_exit_text">¿Est\u00e1 seguro de que desea cerrar sesi\u00f3n?</string>
+    <string name="main_modal_exit_title">Warning</string>
+    <string name="main_modal_exit_text">Do you want to close your session?</string>
 
     <!-- ABOUT -->
     <string name="github_page">jsmazapad github page</string>
+    <string name="about_video_url">https://southernharvesthg.com/wp-content/uploads/Filling-glass-with-beer.mp4</string>
+    <string name="about_github_url">https://github.com/jsmazapad</string>
+    <string name="about_box_text">App with utilities to help you drinking beer</string>
 
     <!-- FRIENDS -->
     <string name="add_friend_button_text">Add friend</string>
     <string name="configuration_modal_friends_delete">¿Do you want to delete this item from friends?</string>
     <string name="phone_error">Invalid number or device without call phone capabilities</string>
-    <string name="contact_permission_error">El permiso de acceso a contactos es necesario para poder agregar contactos a su lista de amigos</string>
-    <string name="duplicated_contact_error">You already have a register with this phone number, check</string>
+    <string name="contact_permission_error">We need read contacts permission to add friends</string>
+    <string name="duplicated_contact_error">You already have a register with this phone number, check %s</string>
 
     <!-- LOCATE VEHICLE -->
     <string name="location_permission_error">This app doesn\'t have permission to access location, please give the permission and try again</string>
@@ -77,9 +81,18 @@
     <string name="location_stored_label">Location stored:</string>
     <string name="show_on_navigator_button_label">Show on navigator</string>
     <string name="locate_button_label">Locate</string>
+
+    <!-- ARTICLE DETAIL -->
     <string name="webview_loading_error">Loading error</string>
+    <string name="opening_web_browser_error">It was impossible to open your web browser, please verify that you have one installed and try again</string>
+
+    <!-- LOGIN -->
     <string name="login_button_text">Login</string>
     <string name="validate_password_ko_error">Password is invalid</string>
+    <string name="closing_session_error">Error closing session</string>
+
+    <!-- BAR QUALITY -->
+    <string name="bar_quality_box_text">Push the button, leave your phone on the table until test ends and look your current bar quality</string>
 
 
 </resources>

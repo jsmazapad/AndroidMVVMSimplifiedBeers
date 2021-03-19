@@ -32,7 +32,7 @@
 
             <TextView
                 android:id="@+id/messageTV"
-                android:text="Push the button, leave your phone on the table until test ends and look your current bar quality"
+                android:text="@string/bar_quality_box_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

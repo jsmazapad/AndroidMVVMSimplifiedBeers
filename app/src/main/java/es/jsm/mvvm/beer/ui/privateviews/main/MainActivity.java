@@ -147,10 +147,7 @@ public class MainActivity extends BasePrivateActivity {
     @Override
     public void onBackPressed() {
         if (R.id.nav_menu == navController.getCurrentDestination().getId()) {
-            ModalMessage.showModalMessage(this, getString(R.string.main_modal_exit_title), getString(R.string.main_modal_exit_text), null, (dialog, which) -> {
-                viewModel.closeSession(this);
-
-            }, getString(R.string.default_modal_cancelButton), null);
+            askToCloseSession();
 
         } else {
             if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
@@ -188,6 +185,13 @@ public class MainActivity extends BasePrivateActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void askToCloseSession(){
+        ModalMessage.showModalMessage(this, getString(R.string.main_modal_exit_title), getString(R.string.main_modal_exit_text), null, (dialog, which) -> {
+            viewModel.closeSession(this);
+
+        }, getString(R.string.default_modal_cancelButton), null);
     }
 
     public void closeSession() {

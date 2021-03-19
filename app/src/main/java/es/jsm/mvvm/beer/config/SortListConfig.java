@@ -6,6 +6,10 @@ import es.jsm.mvvm.beer.model.Article;
 import es.jsm.mvvm.beer.model.Beer;
 import es.jsm.mvvm.beer.model.Friend;
 
+/**
+ * Configuración de criterios de ordenación de la App
+ * Se separan y centralizan para poder cambiarlos sin necesidad de ir al viewmodel correspondiente
+ */
 public class SortListConfig {
 
     public final static Comparator<Beer> BEERS_COMPARATOR = (o1, o2) -> {

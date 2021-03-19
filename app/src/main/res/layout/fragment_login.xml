@@ -27,13 +27,15 @@
             <ImageView
                 android:id="@+id/logoIV"
                 android:layout_width="0dp"
-                android:layout_height="160dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="32dp"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintHeight_max="wrap"
+                app:layout_constraintHeight_percent="0.3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.47000003"
                 app:srcCompat="@drawable/beer_logo" />
 
             <LinearLayout
@@ -63,6 +65,7 @@
                         android:id="@+id/beerNameTV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textPassword"
                         android:text="@={viewModel.password}" />
 
                 </com.google.android.material.textfield.TextInputLayout>

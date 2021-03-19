@@ -4,9 +4,6 @@ import android.content.Context;
 
 import androidx.lifecycle.ViewModel;
 
-
-import es.jsm.mvvm.beer.repositories.BeersRepository;
-
 public class BasePrivateViewModel extends ViewModel {
 
     public void closeSession(Context c) {

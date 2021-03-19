@@ -34,7 +34,7 @@
                 android:id="@+id/messageTV"
                 style="@style/MessageTextView"
                 android:layout_width="0dp"
-                android:text="App with utilities to help you drinking beer"
+                android:text="@string/about_box_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

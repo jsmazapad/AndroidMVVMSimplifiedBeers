@@ -1,12 +1,19 @@
 package es.jsm.mvvm.beer.config;
 
+import android.content.Context;
+
+import androidx.navigation.NavController;
+
 import java.util.ArrayList;
 
 import es.jsm.mvvm.beer.R;
+import es.jsm.mvvm.beer.core.utils.ModalMessage;
+import es.jsm.mvvm.beer.ui.privateviews.main.MainActivity;
+import es.jsm.mvvm.beer.ui.privateviews.menu.MenuAction;
 import es.jsm.mvvm.beer.ui.privateviews.menu.MenuElement;
 
 /**
- * Configuración de menú inicial
+ * Configuración de menú
  */
 public class MenuConfig {
     /**
@@ -22,14 +29,13 @@ public class MenuConfig {
             add(new MenuElement("Where is my car", "", R.color.locate_car, MenuElement.ElementGravity.LEFT, R.drawable.ic_car, R.drawable.ic_car, R.id.nav_vehicle_location, true, true, null));
             add(new MenuElement("Bar Quality Test", "", R.color.test_bar, MenuElement.ElementGravity.RIGHT, R.drawable.ic_quality, R.drawable.ic_quality, R.id.nav_quality_test, true, true, null));
             add(new MenuElement("About", "", R.color.about, MenuElement.ElementGravity.LEFT, R.drawable.ic_about, R.drawable.ic_about, R.id.nav_about, true, true, null));
-
-//            add(new MenuElement("Cerrar sesión", "", R.color.disability, MenuElement.ElementGravity.RIGHT, R.drawable.ic_search, R.drawable.ic_search, -1, true, false, new MenuAction() {
-//                @Override
-//                public void execute(Context context) {
-//                    ((MainActivity) ((ContextThemeWrapper) context).getBaseContext()).closeSession();
-//                }
-//            }));
-
+            add(new MenuElement("Close session", "", R.color.close_session, MenuElement.ElementGravity.LEFT, android.R.drawable.ic_lock_power_off, android.R.drawable.ic_lock_power_off, -1, true, false, (context, navController) -> {
+                try {
+                    ((MainActivity) context).askToCloseSession();
+                } catch (ClassCastException exception) {
+                    ModalMessage.showError(context, context.getString(R.string.closing_session_error), null, null, null, null);
+                }
+            }));
         }
     };
 }

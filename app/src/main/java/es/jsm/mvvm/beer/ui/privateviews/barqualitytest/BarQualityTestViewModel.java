@@ -15,7 +15,6 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.ArrayList;
 
 import es.jsm.mvvm.beer.config.GeneralConfig;
-import es.jsm.mvvm.beer.core.ui.base.BaseViewModel;
 import es.jsm.mvvm.beer.core.ui.loading.LoadingViewModel;
 
 public class BarQualityTestViewModel extends LoadingViewModel implements SensorEventListener {

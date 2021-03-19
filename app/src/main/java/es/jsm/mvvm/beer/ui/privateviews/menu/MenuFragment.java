@@ -1,26 +1,17 @@
 package es.jsm.mvvm.beer.ui.privateviews.menu;
 
-import android.os.Build;
-import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
 import es.jsm.mvvm.beer.R;
 import es.jsm.mvvm.beer.core.ui.BaseActivity;
-import es.jsm.mvvm.beer.core.ui.base.BaseFragment;
 import es.jsm.mvvm.beer.core.ui.baserecycler.BaseRecyclerAdapter;
 import es.jsm.mvvm.beer.core.ui.baserecycler.BaseRecyclerFragment;
 import es.jsm.mvvm.beer.databinding.FragmentHomeBinding;
-import es.jsm.mvvm.beer.ui.privateviews.baseprivate.BasePrivateActivity;
-import es.jsm.mvvm.beer.ui.privateviews.beers.BeersViewModel;
-import es.jsm.mvvm.beer.ui.privateviews.main.MainActivity;
 
 public class MenuFragment extends BaseRecyclerFragment<FragmentHomeBinding, MenuViewModel> {
 

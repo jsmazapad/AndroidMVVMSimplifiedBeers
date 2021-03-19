@@ -11,7 +11,6 @@ import es.jsm.mvvm.beer.R;
 import es.jsm.mvvm.beer.core.ui.BaseActivity;
 import es.jsm.mvvm.beer.core.ui.baserecycler.BaseRecyclerAdapter;
 import es.jsm.mvvm.beer.core.ui.baserecycler.BaseRecyclerFragment;
-import es.jsm.mvvm.beer.databinding.FragmentBeersBinding;
 import es.jsm.mvvm.beer.databinding.FragmentNewsBinding;
 
 

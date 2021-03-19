@@ -30,6 +30,7 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginViewM
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = super.onCreateView(inflater, container, savedInstanceState);
         viewModel.getPasswordIsValid().removeObservers(getViewLifecycleOwner());
+        viewModel.resetPasswordValidation();
         viewModel.getPasswordIsValid().observe(getViewLifecycleOwner(), (isValid) -> {
                     viewModel.processLoginResult(getContext(), isValid);
                 }

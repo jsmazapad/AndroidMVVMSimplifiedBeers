@@ -58,13 +58,14 @@
                     style="@style/DefaultButton" />
 
 
-                    <TextView
-                        android:id="@+id/textView4"
-                        style="@style/DetailsBoldLabel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="@string/location_stored_label" />
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/DetailsBoldLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/location_stored_label" />
 
                     <TextView
                         android:id="@+id/locationTV"
@@ -76,10 +77,11 @@
 
                 <Button
                     android:id="@+id/navigationButton"
-                    android:visibility="@{viewModel.addressString == null ? View.INVISIBLE : View.VISIBLE}"
+                    style="@style/DefaultButton"
+                    android:layout_marginTop="10dp"
                     android:onClick="@{() -> viewModel.goToNavigationApp(context)}"
                     android:text="@string/show_on_navigator_button_label"
-                    style="@style/DefaultButton" />
+                    android:visibility="@{viewModel.addressString == null ? View.INVISIBLE : View.VISIBLE}" />
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

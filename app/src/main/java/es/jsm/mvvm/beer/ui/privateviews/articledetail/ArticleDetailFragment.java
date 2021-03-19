@@ -12,9 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import es.jsm.mvvm.beer.R;
 import es.jsm.mvvm.beer.core.ui.base.BaseFragment;
-import es.jsm.mvvm.beer.databinding.FragmentAboutBinding;
 import es.jsm.mvvm.beer.databinding.FragmentArticleDetailBinding;
-import es.jsm.mvvm.beer.ui.privateviews.beerdetail.BeerDetailFragmentArgs;
 
 public class ArticleDetailFragment extends BaseFragment<FragmentArticleDetailBinding, ArticleDetailViewModel> {
 

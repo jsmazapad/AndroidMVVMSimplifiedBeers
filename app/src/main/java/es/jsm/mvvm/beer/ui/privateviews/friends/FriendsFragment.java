@@ -1,19 +1,19 @@
 package es.jsm.mvvm.beer.ui.privateviews.friends;
 
 import android.Manifest;
-
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
-
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 
@@ -25,12 +25,9 @@ import es.jsm.mvvm.beer.core.ui.baserecycler.BaseRecyclerFragment;
 import es.jsm.mvvm.beer.core.utils.ModalMessage;
 import es.jsm.mvvm.beer.databinding.FragmentFriendsBinding;
 
-import android.widget.Button;
-import android.widget.Spinner;
-
 
 public class FriendsFragment extends BaseRecyclerFragment<FragmentFriendsBinding, FriendsViewModel> implements
-        LoaderManager.LoaderCallbacks<Cursor>{
+        LoaderManager.LoaderCallbacks<Cursor> {
 
     Spinner contactSpinner;
 
@@ -58,7 +55,7 @@ public class FriendsFragment extends BaseRecyclerFragment<FragmentFriendsBinding
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v =  super.onCreateView(inflater, container, savedInstanceState);
+        View v = super.onCreateView(inflater, container, savedInstanceState);
         //Comprobamos permisos, si no los tiene, los solicitamos
         if (ActivityCompat.checkSelfPermission(this.getContext(), Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
 
@@ -66,7 +63,7 @@ public class FriendsFragment extends BaseRecyclerFragment<FragmentFriendsBinding
                     PermissionsConfig.CONTACTS_REQUEST_CODE);
 
         } else {
-           //Tiene los permisos, ejecutamos la acción
+            //Tiene los permisos, ejecutamos la acción
             // Initializes the loader
             LoaderManager.getInstance(this).initLoader(0, null, this);
         }
@@ -80,7 +77,18 @@ public class FriendsFragment extends BaseRecyclerFragment<FragmentFriendsBinding
         contactSpinner.setAdapter(viewModel.getCursorAdapter());
         contactSpinner.setPrompt("Escoja el contacto a añadir:");
         Button addContactButton = v.findViewById(R.id.addFriendButton);
-        addContactButton.setOnClickListener((view)->{contactSpinner.performClick();});
+        addContactButton.setOnClickListener((view) -> {
+            if (ActivityCompat.checkSelfPermission(this.getContext(), Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+
+                requestPermissions(new String[]{Manifest.permission.READ_CONTACTS},
+                        PermissionsConfig.CONTACTS_REQUEST_CODE);
+
+            } else {
+                //Tiene los permisos, ejecutamos la acción
+                contactSpinner.performClick()
+                ;
+            }
+        });
         return v;
     }
 
@@ -92,7 +100,7 @@ public class FriendsFragment extends BaseRecyclerFragment<FragmentFriendsBinding
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                   //Tiene los permisos, ejecutamos la acción
+                    //Tiene los permisos, ejecutamos la acción
                     // Initializes the loader
                     LoaderManager.getInstance(this).initLoader(0, new Bundle(), this);
                 } else {
@@ -116,12 +124,12 @@ public class FriendsFragment extends BaseRecyclerFragment<FragmentFriendsBinding
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-       viewModel.loadContactData(cursor);
+        viewModel.loadContactData(cursor);
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-       viewModel.resetContactData();
+        viewModel.resetContactData();
 
     }
 

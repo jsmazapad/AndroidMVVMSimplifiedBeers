@@ -26,7 +26,9 @@ public class BeerDetailViewModel extends LoadingViewModel implements Observable 
     private enum BeerDetailActions {
         CHECK,
         TOGGLE
-    };
+    }
+
+    ;
     private BeerDetailActions action = BeerDetailActions.CHECK;
     private final MutableLiveData<Beer> beer = new MutableLiveData<>();
     private final MutableLiveData<ElementResponse<Beer>> storedBeerResponseHolder = new MutableLiveData<>();
@@ -41,8 +43,9 @@ public class BeerDetailViewModel extends LoadingViewModel implements Observable 
 
     /**
      * Procesa un elementResponseObtenido de la fuente de permanencia donde se cachean los favoritos
+     *
      * @param apiResponse REspuesta
-     * @param context Contexto donde se realiza la acción
+     * @param context     Contexto donde se realiza la acción
      */
     public void processStoredResponseData(ElementResponse<Beer> apiResponse, Context context) {
         isLoading.setValue(false);
@@ -66,7 +69,7 @@ public class BeerDetailViewModel extends LoadingViewModel implements Observable 
     /**
      * Comprueba el estado inicial del elemento en la fuente de permanencia donde se cachean los favoritos
      */
-    public void checkInitialStoredState(){
+    public void checkInitialStoredState() {
         action = BeerDetailActions.CHECK;
         isLoading.setValue(true);
         BeersRepository.getFavoriteBeer(storedBeerResponseHolder, beer.getValue());
@@ -79,6 +82,7 @@ public class BeerDetailViewModel extends LoadingViewModel implements Observable 
     public void setBeer(Beer beer) {
         this.beer.setValue(beer);
     }
+
     public LiveData<Boolean> getIsFavorite() {
         return isFavorite;
     }
@@ -90,15 +94,16 @@ public class BeerDetailViewModel extends LoadingViewModel implements Observable 
     /**
      * Dispara el proceso para insertar/eliminar el favorito de la fuente de datos donde está cacheado
      */
-    public void triggerToggleStoredFavorite(){
+    public void triggerToggleStoredFavorite() {
         action = BeerDetailActions.TOGGLE;
         isLoading.setValue(true);
         BeersRepository.getFavoriteBeer(storedBeerResponseHolder, beer.getValue());
     }
 
     /**
-     *  realiza el proceso para insertar/eliminar el favorito de la fuente de datos donde está cacheado
-     * @param context contexto donde se ejecuta la acción
+     * realiza el proceso para insertar/eliminar el favorito de la fuente de datos donde está cacheado
+     *
+     * @param context    contexto donde se ejecuta la acción
      * @param storedBeer Referencia al objeto cacheado, si es null es que no está registrado
      */
     public void toggleStoredFavorite(Context context, Beer storedBeer) {
@@ -107,14 +112,14 @@ public class BeerDetailViewModel extends LoadingViewModel implements Observable 
             BeersRepository.insertFavoriteBeer(beer.getValue());
             isFavorite.setValue(true);
 
-            Toast.makeText(context, (beer.getValue().getName() != null ? beer.getValue().getName() : "") + " guardado en Favoritos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, String.format(context.getString(R.string.favourites_toast_message), (beer.getValue().getName() != null ? beer.getValue().getName() : "")), Toast.LENGTH_SHORT).show();
             notifyChange();
         } else {
             ModalMessage.showModalMessage(context, getApplication().getString(R.string.configuration_modal_confirmation_title), getApplication().getString(R.string.configuration_modal_favorite_delete), null, (dialog, which) -> {
                 BeersRepository.deleteFavoriteBeer(beer.getValue());
                 isFavorite.setValue(false);
 
-                Snackbar.make(((MainActivity)context).getWindow().getDecorView().findViewById(android.R.id.content),(beer.getValue().getName() != null ? beer.getValue().getName() : "")  + " borrado de Favoritos", Snackbar.LENGTH_LONG).setAction(R.string.dismiss, new View.OnClickListener() {
+                Snackbar.make(((MainActivity) context).getWindow().getDecorView().findViewById(android.R.id.content), String.format(context.getString(R.string.favourites_deleted_message), (beer.getValue().getName() != null ? beer.getValue().getName() : "")), Snackbar.LENGTH_LONG).setAction(R.string.dismiss, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         BeersRepository.insertFavoriteBeer(beer.getValue());
@@ -122,9 +127,9 @@ public class BeerDetailViewModel extends LoadingViewModel implements Observable 
                         notifyChange();
                     }
                 }).show();
-                //Toast.makeText(context, beer.getValue().getName() != null ? beer.getValue().getName() : ""  + " borrado de Favoritos", Toast.LENGTH_SHORT).show();
                 notifyChange();
-            }, null, (dialog, which)->{});
+            }, null, (dialog, which) -> {
+            });
         }
 
 
@@ -160,12 +165,6 @@ public class BeerDetailViewModel extends LoadingViewModel implements Observable 
     public void notifyPropertyChanged(int fieldId) {
         callbacks.notifyCallbacks(this, fieldId, null);
     }
-
-
-
-
-
-
 
 
 }

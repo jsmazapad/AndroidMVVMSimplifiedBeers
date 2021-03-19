@@ -3,22 +3,16 @@ package es.jsm.mvvm.beer.ui.privateviews.news;
 import android.app.Application;
 import android.content.Context;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.navigation.NavController;
-
-import com.google.android.material.slider.Slider;
 
 import java.util.Collections;
 import java.util.List;
 
-import es.jsm.mvvm.beer.config.GeneralConfig;
 import es.jsm.mvvm.beer.config.SortListConfig;
 import es.jsm.mvvm.beer.core.data.repositories.responses.ListResponse;
 import es.jsm.mvvm.beer.model.Article;
-import es.jsm.mvvm.beer.model.Beer;
 import es.jsm.mvvm.beer.repositories.BeersRepository;
 import es.jsm.mvvm.beer.ui.privateviews.baseprivate.BasePrivateRecyclerViewModel;
-import es.jsm.mvvm.beer.ui.privateviews.beers.BeersFragmentDirections;
 
 public class NewsViewModel extends BasePrivateRecyclerViewModel<Article, Article> {
 

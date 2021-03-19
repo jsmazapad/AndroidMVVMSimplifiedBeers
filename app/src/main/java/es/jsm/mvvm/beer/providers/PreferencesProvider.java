@@ -4,13 +4,8 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.List;
 
 import es.jsm.mvvm.beer.core.utils.PreferenceManager;
-import es.jsm.mvvm.beer.model.Beer;
 import es.jsm.mvvm.beer.model.VehicleLocation;
 
 /**

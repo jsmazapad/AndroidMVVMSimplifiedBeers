@@ -11,8 +11,8 @@ import androidx.navigation.NavController;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.jsm.mvvm.beer.core.exceptions.BaseException;
 import es.jsm.mvvm.beer.core.data.repositories.responses.ListResponse;
+import es.jsm.mvvm.beer.core.exceptions.BaseException;
 import es.jsm.mvvm.beer.core.ui.BaseUIErrorHandler;
 import es.jsm.mvvm.beer.core.ui.RetryAction;
 import es.jsm.mvvm.beer.core.ui.SetShowDialogFalse;

@@ -13,37 +13,62 @@ import es.jsm.mvvm.beer.model.Article;
 
 
 public class ArticlesXMLConverter implements Converter<FeedXMEntity> {
+
+    //Estructura del documento hasta llegar a los items
+    public static final String CONVERTER = "converter";
+    public static final String CHANNEL = "channel";
+    public static final String TITLE = "title";
+    public static final String LINK = "link";
+    public static final String DESCRIPTION = "description";
+    public static final String LANGUAGE = "language";
+    public static final String LAST_BUILD_DATE = "lastBuildDate";
+    public static final String GENERATOR = "generator";
+    public static final String DOCS = "docs";
+    public static final String LINK1 = "link";
+    public static final String INFO = "info";
+    public static final String LINK2 = "link";
+    //Estructura de item
+    public static final String ITEM = "item";
+    public static final String ITEM_TITLE = "title";
+    public static final String ITEM_LINK = "link";
+    public static final String ITEM_DESCRIPTION = "description";
+    public static final String ITEM_AUTHOR = "author";
+    public static final String ITEM_PUB_DATE = "pubDate";
+    public static final String ITEM_GUID = "guid";
+    public static final String ITEM_ORIG_LINK = "origLink";
+
     @Override
     public FeedXMEntity read(InputNode node) throws Exception {
-        System.out.println("converter");
+        System.out.println(CONVERTER);
 
        List <Article> articles = new ArrayList<>();
 
         //Avanzamos hasta la lista real
 
-        InputNode nextNode = node.getNext("channel");
-        nextNode.getNext("title");
-         nextNode.getNext("link");
-        nextNode.getNext("description");
-         nextNode.getNext("language");
-        nextNode.getNext("lastBuildDate");
-        nextNode.getNext("generator");
-        nextNode.getNext("docs");
-        nextNode.getNext("link");
-        nextNode.getNext("info");
-         nextNode.getNext("link");
+        InputNode nextNode = node.getNext(CHANNEL);
+        nextNode.getNext(TITLE);
+         nextNode.getNext(LINK);
+        nextNode.getNext(DESCRIPTION);
+         nextNode.getNext(LANGUAGE);
+        nextNode.getNext(LAST_BUILD_DATE);
+        nextNode.getNext(GENERATOR);
+        nextNode.getNext(DOCS);
+        nextNode.getNext(LINK1);
+        nextNode.getNext(INFO);
+         nextNode.getNext(LINK2);
 
-        InputNode itemNode = nextNode.getNext("item");
+         //Iteramos sobre items hasta que se terminen
+        InputNode itemNode = nextNode.getNext(ITEM);
         while (itemNode != null) {
 
 
-            String title = itemNode.getNext("title").getValue();
-            String link  = itemNode.getNext("link").getValue();
-            String description  = itemNode.getNext("description").getValue();
-            String author  = itemNode.getNext("author").getValue();
-            String pubDateString  = itemNode.getNext("pubDate").getValue();
-            itemNode.getNext("guid");
-            String origLink  = itemNode.getNext("origLink").getValue();
+            String title = itemNode.getNext(ITEM_TITLE).getValue();
+            String link  = itemNode.getNext(ITEM_LINK).getValue();
+            String description  = itemNode.getNext(ITEM_DESCRIPTION).getValue();
+            String author  = itemNode.getNext(ITEM_AUTHOR).getValue();
+            String pubDateString  = itemNode.getNext(ITEM_PUB_DATE).getValue();
+            itemNode.getNext(ITEM_GUID);
+            String origLink  = itemNode.getNext(ITEM_ORIG_LINK).getValue();
 
             Article article = new Article(title, link, description, author, pubDateString, origLink);
 

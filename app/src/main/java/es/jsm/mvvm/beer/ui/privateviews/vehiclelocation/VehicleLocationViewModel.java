@@ -2,7 +2,6 @@ package es.jsm.mvvm.beer.ui.privateviews.vehiclelocation;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -12,7 +11,6 @@ import android.os.Message;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -28,9 +26,6 @@ import es.jsm.mvvm.beer.core.utils.ExternalActionsManager;
 import es.jsm.mvvm.beer.core.utils.ModalMessage;
 import es.jsm.mvvm.beer.model.VehicleLocation;
 import es.jsm.mvvm.beer.repositories.BeersRepository;
-
-import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 
 public class VehicleLocationViewModel extends LocationViewModel {

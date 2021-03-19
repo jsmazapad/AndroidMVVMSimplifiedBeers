@@ -2,7 +2,6 @@ package es.jsm.mvvm.beer.ui.privateviews.barqualitytest;
 
 
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

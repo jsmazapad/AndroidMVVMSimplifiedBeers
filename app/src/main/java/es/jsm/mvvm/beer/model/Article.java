@@ -1,7 +1,5 @@
 package es.jsm.mvvm.beer.model;
 
-import java.util.Date;
-
 public class Article {
         private String title;
         private String link;

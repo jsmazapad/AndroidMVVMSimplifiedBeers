@@ -9,7 +9,6 @@ import android.webkit.WebViewClient;
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.MutableLiveData;
 
-import es.jsm.mvvm.beer.R;
 import es.jsm.mvvm.beer.core.exceptions.BaseException;
 
 /**

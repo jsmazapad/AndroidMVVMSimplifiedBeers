@@ -3,11 +3,9 @@ package es.jsm.mvvm.beer.data.network.deserializers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import es.jsm.mvvm.beer.core.data.network.DeserializerListStrategyInterface;

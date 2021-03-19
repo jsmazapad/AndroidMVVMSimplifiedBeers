@@ -3,7 +3,6 @@ package es.jsm.mvvm.beer.ui.privateviews.beers;
 import android.app.Application;
 import android.content.Context;
 
-import androidx.databinding.BindingAdapter;
 import androidx.lifecycle.MutableLiveData;
 import androidx.navigation.NavController;
 

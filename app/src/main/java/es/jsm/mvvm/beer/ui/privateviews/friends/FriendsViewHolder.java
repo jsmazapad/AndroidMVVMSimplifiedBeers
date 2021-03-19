@@ -6,9 +6,7 @@ import android.widget.TextView;
 
 import es.jsm.mvvm.beer.R;
 import es.jsm.mvvm.beer.core.ui.baserecycler.BaseRecyclerViewHolder;
-import es.jsm.mvvm.beer.model.Beer;
 import es.jsm.mvvm.beer.model.Friend;
-import es.jsm.mvvm.beer.providers.ImagesProvider;
 
 
 public class FriendsViewHolder extends BaseRecyclerViewHolder<Friend> {

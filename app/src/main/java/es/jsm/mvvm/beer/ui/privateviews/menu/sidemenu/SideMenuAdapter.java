@@ -12,7 +12,7 @@ import es.jsm.mvvm.beer.ui.privateviews.main.MainActivity;
 import es.jsm.mvvm.beer.ui.privateviews.menu.MenuElement;
 
 
-public class SideMenuAdapter extends BaseRecyclerAdapter<MenuElement, SideMenuElementVH, MenuElement> {
+public class SideMenuAdapter extends BaseRecyclerAdapter<MenuElement, SideMenuElementViewHolder, MenuElement> {
 
     private final Context context;
 
@@ -22,25 +22,21 @@ public class SideMenuAdapter extends BaseRecyclerAdapter<MenuElement, SideMenuEl
     }
 
     @Override
-    public SideMenuElementVH instanceViewHolder(View v) {
-        return new SideMenuElementVH(v);
+    public SideMenuElementViewHolder instanceViewHolder(View v) {
+        return new SideMenuElementViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(SideMenuElementVH holder, int position) {
+    public void onBindViewHolder(SideMenuElementViewHolder holder, int position) {
         MenuElement element = viewModel.getElements().getValue().get(position);
         holder.fillViewHolder(element);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(v -> {
 
-            @Override
-            public void onClick(View v) {
-
-                viewModel.onItemSelected(position, navController, v.getContext());
-                if (context instanceof MainActivity) {
-                    ((MainActivity) context).getDrawerLayout().closeDrawers();
-                }
-
+            viewModel.onItemSelected(position, navController, context);
+            if (context instanceof MainActivity) {
+                ((MainActivity) context).getDrawerLayout().closeDrawers();
             }
+
         });
 
     }

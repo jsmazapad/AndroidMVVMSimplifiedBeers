@@ -6,7 +6,6 @@ import androidx.room.Query;
 
 import java.util.List;
 
-import es.jsm.mvvm.beer.model.Beer;
 import es.jsm.mvvm.beer.model.Friend;
 
 /**

@@ -123,14 +123,10 @@ public class FriendsViewModel extends BasePrivateRecyclerViewModel<Friend, Frien
 
     @Override
     public void onItemSelected(int position, NavController navController, Context context) {
-        if (isLoading.getValue() == null || !isLoading.getValue()) {
-
-        }
     }
 
     @Override
     public void setConstructorParameters(Object... args) {
-
     }
 
     @Override
@@ -215,7 +211,7 @@ public class FriendsViewModel extends BasePrivateRecyclerViewModel<Friend, Frien
         }else{
             isLoading.setValue(false);
             String duplicatedFriendName = friendRecordFromRepository.getName() != null ? friendRecordFromRepository.getName() : "";
-            ModalMessage.showError(context, context.getString(R.string.duplicated_contact_error) + duplicatedFriendName , null, null, null, null);
+            ModalMessage.showError(context, String.format(context.getString(R.string.duplicated_contact_error), duplicatedFriendName) , null, null, null, null);
         }
     }
 
